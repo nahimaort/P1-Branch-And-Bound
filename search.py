@@ -101,16 +101,18 @@ def graph_search(problem, fringe):
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
     closed = {}
+    visited_node_count = 0
     fringe.append(Node(problem.initial))
     while fringe:
         node = fringe.pop()
+        visited_node_count += 1
         if problem.goal_test(node.state):
+            print("Contador de nodos visitados: ", visited_node_count)
             return node
         if node.state not in closed:
             closed[node.state] = True
             fringe.extend(node.expand(problem))
     return None
-
 
 def breadth_first_graph_search(problem):
     """Search the shallowest nodes in the search tree first. [p 74]"""

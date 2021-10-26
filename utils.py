@@ -1,5 +1,6 @@
 # ______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
+import math
 
 infinity = 1.0e400
 
@@ -559,10 +560,10 @@ class BandBQueue(Queue):
 
     def extend(self, items):
         self.A.extend(items)
+        self.A.sort(reverse=True)
 
     def pop(self):
-        self.A.sort()
-        return self.A.pop(0)
+        return self.A.pop()
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
